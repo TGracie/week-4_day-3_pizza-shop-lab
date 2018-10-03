@@ -1,0 +1,11 @@
+<hr>
+<h2>Your Order</h2>
+<hr>
+<p>Name: <%=  @pizza.pretty_name()%></p>
+<hr>
+<p>Pizza: <%= @pizza.topping() %></p>
+<hr>
+<p>Quantity: <%= @pizza.quantity() %></p>
+<hr>
+<p>Total Cost: £<%= @pizza.total() %></p>
+<hr>
