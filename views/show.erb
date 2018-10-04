@@ -1,5 +1,5 @@
 <hr>
-<h2>Your Order</h2>
+<h2>Your Order: <%= @pizza.id %></h2>
 <hr>
 <p>Name: <%=  @pizza.pretty_name()%></p>
 <hr>
@@ -8,4 +8,14 @@
 <p>Quantity: <%= @pizza.quantity() %></p>
 <hr>
 <p>Total Cost: £<%= @pizza.total() %></p>
+<hr>
+
+<a href="/pizza-orders/<%= @pizza.id %>/edit">Edit Your Order</a>
+
+<hr>
+
+
+<form action="/pizza-orders/<%= @pizza.id %>/delete" method="post">
+  <input type="submit" value="Delete Your Order">
+</form>
 <hr>

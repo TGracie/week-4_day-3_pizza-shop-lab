@@ -29,5 +29,30 @@ also_reload( './models/*' )
     @pizza = PizzaOrder.new(params)
     @pizza.save
     erb(:create)
+  end
 
+ ## DELETE ##
+ post('/pizza-orders/:id/delete') do
+  id = params[:id].to_i
+  @pizza = PizzaOrder.find(id)
+  @pizza.delete
+  # erb(:delete)
+  redirect('/pizza-orders')
+ end
+
+  ## EDIT ##
+  get('/pizza-orders/:id/edit') do
+    @id = params[:id].to_i
+    @pizza = PizzaOrder.find(@id)
+    erb(:edit)
+  end
+
+  ## UPDATE ##
+  post('/pizza-orders/:id') do
+    # id = params[:id].to_i
+    # @pizza = PizzaOrder.find(id)
+    # @pizza.update
+    PizzaOrder.new(params).update
+    ## What we're doing is populating the old object with this new objects data, the new object is the update being popped into place of the old one, only the id persists
+    redirect('/pizza-orders')
   end
